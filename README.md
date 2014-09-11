@@ -1,7 +1,7 @@
 cets-multisite-dashboard-crawler
 ================================
 
-WordPress plugin to hit the dashboard of every site in a MultiSite network
+// A WordPress plugin to hit the dashboard of every site in a MultiSite network
 
 
 This plugin is designed to address an issue regarding updating plugins in a MultiSite environment.  If a plugin update needs to perform any database updates or other maintenance tasks, doing so in a MultiSite environment can lead to large problems.  This plugin addresses this by providing a utility to touch the backend of every site in a MultiSite environment, thus allowing the updated plugin to perform any required updates.  
