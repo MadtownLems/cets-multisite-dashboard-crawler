@@ -3,7 +3,7 @@
 
 Plugin Name: MultiSite Dashboard Crawler (CETS)
 Description: Lets network admins crawl the dashboard of each site in multisite
-Version: 0.1
+Version: 0.2
 Network: true
 Author: Jason Lemahieu
 Author URI: http://madtownlems.wordpress.com
@@ -63,7 +63,7 @@ function multisite_dashboard_crawler_single_admin_footer() {
 function _multisite_dashboard_crawler_get_first_site_id() {
 	
 	global $wpdb;
-	$sql = "SELECT MIN(blog_id) FROM wp_blogs WHERE archived = 0 AND deleted = 0";
+	$sql = "SELECT MIN(blog_id) FROM {$wpdb->blogs} WHERE archived = 0 AND deleted = 0";
 	$result = (int) $wpdb->get_var($sql);
 
 	if ($result && is_integer($result)) {
@@ -79,7 +79,7 @@ function _multisite_dashboard_crawler_get_next_site_id() {
 	global $wpdb;
 
 	// get next highest blog id
-	$sql = "SELECT MIN(blog_id) FROM wp_blogs WHERE archived = 0 AND deleted = 0 AND blog_id > {$blog_id}";
+	$sql = "SELECT MIN(blog_id) FROM {$wpdb->blogs} WHERE archived = 0 AND deleted = 0 AND blog_id > {$blog_id}";
 	
 	$result = (int) $wpdb->get_var($sql);
 
